@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBOracleGenerate", "DBOracleGenerate\DBOracleGenerate.csproj", "{EF92BDD0-69EA-4073-946A-4CF16E398082}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBOracleGlobal", "DBOracleGlobal\DBOracleGlobal.csproj", "{27F40146-97E4-4F08-82C5-42316A89D4C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF92BDD0-69EA-4073-946A-4CF16E398082}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF92BDD0-69EA-4073-946A-4CF16E398082}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF92BDD0-69EA-4073-946A-4CF16E398082}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF92BDD0-69EA-4073-946A-4CF16E398082}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27F40146-97E4-4F08-82C5-42316A89D4C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27F40146-97E4-4F08-82C5-42316A89D4C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27F40146-97E4-4F08-82C5-42316A89D4C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27F40146-97E4-4F08-82C5-42316A89D4C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
