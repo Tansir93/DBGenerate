@@ -55,7 +55,7 @@ namespace DBOracleGenerate
                 ComboBox cb=new ComboBox();
                 cb.Top = 20 + 30 * i;
                 cb.Left =  tb.Width+ lb.Left + 10;
-                cb.DataSource = lis;
+                cb.DataSource =new List<string>(lis);
 
               //  cbBulidIndex.ValueMember = "RowType";
 
