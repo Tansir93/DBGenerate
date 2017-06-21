@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -48,16 +49,12 @@ namespace DBOracleGenerate
                 lb.Left = tb.Width+50 ;
                 lb.Text ="第 "+ i+" 列";
 
-                //TextBox tytb=new TextBox();
-                //tytb.Top= 20 + 30 * i;
-                //tb.Left = tb.Width +80;
 
                 ComboBox cb=new ComboBox();
                 cb.Top = 20 + 30 * i;
                 cb.Left =  tb.Width+ lb.Left + 10;
                 cb.DataSource =new List<string>(lis);
 
-              //  cbBulidIndex.ValueMember = "RowType";
 
                 this.pnDataSet.Controls.Add(tb);
                 this.pnDataSet.Controls.Add(cb);
@@ -68,18 +65,19 @@ namespace DBOracleGenerate
             }
         }
 
+
         private void cbIsBuildIndex_CheckedChanged(object sender, EventArgs e)
         {
             if (cbIsBuildIndex.Checked)
             {
                 cbBulidIndex.Enabled = true;
-               
             }
             else
             {
                 cbBulidIndex.Enabled = false;
             }
         }
+
 
         private void btConfirmField_Click(object sender, EventArgs e)
         {
@@ -88,7 +86,7 @@ namespace DBOracleGenerate
             {
                 if (item.RowName.Text == null || item.RowName.Text == string.Empty || item.RowType.Text == null || item.RowType.Text == string.Empty)
                 {
-                    LbMsg.Visible = true;
+                    LbMsg.Visible = true;   
                     LbMsg.Text = item.Num.Text + "不能为空.";
                     LbMsg.ForeColor=Color.Red;
                     return;
@@ -98,20 +96,11 @@ namespace DBOracleGenerate
                 cnt.RowType = item.RowType.SelectedValue.ToString();
                 lstype.Add(cnt);
             }
-            cbBulidIndex.DataSource = null;
-            cbBulidIndex.DataSource =new List<CreateRowNameAndType>(lstype);
-            cbBulidIndex.ValueMember = "RowName";
-            cbBulidIndex.DisplayMember = "RowName";
+            DataSourceBind<ComboBox>(cbBulidIndex, lstype);
 
-            cbPartitionField.DataSource = null;
-            cbPartitionField.DataSource = new List<CreateRowNameAndType>(lstype);
-            cbPartitionField.ValueMember = "RowName";
-            cbPartitionField.DisplayMember = "RowName";
+            DataSourceBind<ComboBox>(cbPartitionField, lstype);
 
-            cnKeyName.DataSource = null;
-            cnKeyName.DataSource = new List<CreateRowNameAndType>(lstype);
-            cnKeyName.ValueMember = "RowName";
-            cnKeyName.DisplayMember = "RowName";
+            DataSourceBind<ComboBox>(cnKeyName, lstype);
 
             LbMsg.Visible = false;
         }
@@ -136,58 +125,17 @@ namespace DBOracleGenerate
             if (cbBulidArray.Checked)
             {
                 cnKeyName.Enabled = true;
-
             }
             else
             {
                 cnKeyName.Enabled = false;
             }
         }
+
+
+
+
+
     }
 
-    class  CreatTableRow
-    {
-        private TextBox _rowName;
-
-        private ComboBox _rowType;
-
-        private Label _num;
-
-
-        public TextBox RowName
-        {
-            get { return _rowName; }
-            set { _rowName = value; }
-        }
-
-        public ComboBox RowType
-        {
-            get { return _rowType; }
-            set { _rowType = value; }
-        }
-
-        public Label Num
-        {
-            get { return _num; }
-            set { _num = value; }
-        }
-    }
-
-    class CreateRowNameAndType
-    {
-        private string _rowName;
-
-        private string _rowType;
-        public string RowName
-        {
-            get { return _rowName; }
-            set { _rowName = value; }
-        }
-
-        public string RowType
-        {
-            get { return _rowType; }
-            set { _rowType = value; }
-        }
-    }
 }
